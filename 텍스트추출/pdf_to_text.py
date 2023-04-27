@@ -5,9 +5,8 @@ doc = fitz.open(path)
 text = ""
 temp = ""
 for page in doc:
-    temp = page.get_text() # 단어가져오기
+    temp = page.get_text() 
     temp = temp.replace("\n", " ")  
-    # temp = temp.replace("\n", "NNNN") 
     text += temp
 print(text)
 prev = ""
@@ -18,19 +17,11 @@ for char in text:
         continue
     elif char == " ": 
         continue
-    elif prev.isdecimal() and not char.isdecimal() and char != "," :
+    elif prev.isdecimal() and not char.isdecimal() and char != "," and char != ")":
         modified+="\n" + char
         prev = char
-    # elif char == ")":
-    #     modified+= char
-    #     prev = char
-    # elif prev == " " and char.isnumeric():
-        # modified+= char+ "\t"
-        # prev = char 
     else:
         modified += char
         prev = char
 
-# print(text)
 print(modified)
-# print("Ⅴ".isnumeric())
