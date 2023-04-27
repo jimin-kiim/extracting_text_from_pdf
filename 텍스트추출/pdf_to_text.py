@@ -9,17 +9,32 @@ for page in doc:
     temp = temp.replace("\n", " ")  
     # temp = temp.replace("\n", "NNNN") 
     text += temp
+print(text)
 prev = ""
-curr = ""
 modified = ""
 for char in text:
-    if char == " ": continue
-    if prev.isdigit() and not char.isdigit() and char != "," and char.:
+    if prev.isdecimal() and char == " ":
+        modified+= char+ "\t"
+        prev = "\t"
+        continue
+    elif char == " ": continue
+
+    if prev == "\t" and not char.isdecimal():
         modified+= char + "\n"
         prev = char
+    elif prev.isdecimal() and not char.isdecimal() and char != "," :
+        modified+= char + "\n"
+        prev = char
+    # elif char == ")":
+    #     modified+= char
+    #     prev = char
+    # elif prev == " " and char.isnumeric():
+        # modified+= char+ "\t"
+        # prev = char 
     else:
         modified += char
         prev = char
 
 # print(text)
 print(modified)
+# print("Ⅴ".isnumeric())
