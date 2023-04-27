@@ -14,16 +14,12 @@ prev = ""
 modified = ""
 for char in text:
     if prev.isdecimal() and char == " ":
-        modified+= char+ "\t"
-        prev = "\t"
+        modified+= "\t"
         continue
-    elif char == " ": continue
-
-    if prev == "\t" and not char.isdecimal():
-        modified+= char + "\n"
-        prev = char
+    elif char == " ": 
+        continue
     elif prev.isdecimal() and not char.isdecimal() and char != "," :
-        modified+= char + "\n"
+        modified+="\n" + char
         prev = char
     # elif char == ")":
     #     modified+= char
